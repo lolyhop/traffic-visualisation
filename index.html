@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Traffic Visualization</title>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.8.5/dist/d3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/geoip-lite-js@1.0.4/dist/geoip-lite.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div id="container">
+        <div id="controls">
+            <button id="start-button">Start Sending Packets</button>
+        </div>
+        <div id="map-container"></div>
+        <div id="stats-container">
+            <canvas id="packets-chart"></canvas>
+        </div>
+        <div id="country-stats">
+            <div class="stats-title">Top Packet-Sending Countries</div>
+            <div id="country-list"></div>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/three-setup.js"></script>
+    <script src="js/chart-setup.js"></script>
+    <script src="js/data-handling.js"></script>
+    <script src="js/visualization.js"></script>
+</body>
+</html>

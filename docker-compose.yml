@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - server
+      - sender
+    networks:
+      - app-network
+
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    ports:
+      - "1337:1337"
+    env_file:
+      - .env
+    networks:
+      - app-network
+
+  sender:
+    build:
+      context: .
+      dockerfile: Dockerfile.sender
+    ports:
+      - "1338:1338"
+    env_file:
+      - .env
+    depends_on:
+      - server
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge 

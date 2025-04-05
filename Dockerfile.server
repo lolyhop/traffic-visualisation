@@ -1,0 +1,13 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY server.py .
+COPY settings.py .
+
+EXPOSE 1337
+
+CMD ["gunicorn", "--bind", "0.0.0.0:1337", "--workers", "4", "--threads", "2", "server:app"] 
