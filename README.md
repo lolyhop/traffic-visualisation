@@ -8,7 +8,7 @@ A real-time 3D visualisation of network traffic using Three.js and Flask framewo
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/lolyhop/traffic-visualisation.git
 cd traffic-visualisation
 ```
 
